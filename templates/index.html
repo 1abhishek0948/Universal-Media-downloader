@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}UMD - Universal Media Downloader{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1 class="display-5 fw-bold">Universal Media Downloader</h1>
+    <p class="lead text-muted mb-4">The Ultimate All-in-One Media Downloading Solution</p>
+</div>
+
+<div class="text-center mb-4" id="media-type-selector">
+    <button type="button" class="btn btn-primary-custom media-btn" data-type="video"> 🎥Video</button>
+    <button type="button" class="btn btn-outline-secondary media-btn text-danger fw-bold" data-type="audio">🎧Audio</button>
+    <button type="button" class="btn btn-outline-success media-btn text-danger fw-bold" data-type="image">🏞️Image</button>
+    <button type="button" class="btn btn-outline-success media-btn text-danger fw-bold" data-type="playlist">▶️YouTube Playlist</button>
+</div>
+
+<section id="downloader-section" class="mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-3 shadow-sm" style="border-color: #ff85a2;">
+                <form id="download-form">
+                    <div class="input-group">
+                        <input type="text" id="media-url" class="form-control form-control-lg" placeholder="Paste Video URL here" required>
+                        <button class="btn btn-primary-custom" type="submit" id="download-btn">Download</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="results-section" class="d-none card mt-4 shadow-sm">
+                <div class="card-body">
+                    <div id="loading" class="text-center d-none">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Fetching media info...</p>
+                    </div>
+                    <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+                    <div id="media-details" class="d-none"></div>
+
+                    <div id="download-progress" class="d-none text-center">
+                        <div class="download-container">
+                            <div class="download-spinner"></div>
+                            <span id="download-speed-text" class="speed-text">0 MB/s</span>
+                        </div>
+                        <h5 class="mt-3" id="download-status">Downloading...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%include"platform.html"%}
+
+<section>
+    {% include "game.html" %}
+</section>
+
+<section class="mt-5 pt-4 border-top">
+    <h2 class="text-center mb-4 fw-bold">How to use UMD Downloader?</h2>
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">1. Select & Copy</h5>
+                    <p class="card-text">Choose a media type (Video, Audio, Image) and copy the URL.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">2. Paste & Download</h5>
+                    <p class="card-text">Paste the URL into the input field and click "Download".</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">3. Enjoy!</h5>
+                    <p class="card-text">Your media will be downloaded and ready to enjoy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .download-container {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+    }
+
+    .download-spinner {
+        width: 100px;
+        height: 100px;
+        border: 10px solid #f3f3f3;
+        border-top: 10px solid #1a8fe3;
+        border-radius: 50%;
+        animation: none;
+    }
+    .download-spinner.active {
+        animation: spin 1s linear infinite;
+    }
+
+    .speed-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        font-weight: bold;
+        color: #1a8fe3;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+{% endblock %}

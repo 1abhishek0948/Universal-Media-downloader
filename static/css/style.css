@@ -1,0 +1,55 @@
+/* --- General Styling --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+main {
+    flex: 1;
+}
+
+/* --- Custom Primary Color --- */
+.btn-primary-custom {
+    background-color: #ff6b8d; /* A pinkish color similar to the example */
+    border-color: #ff6b8d;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn-primary-custom:hover,
+.btn-primary-custom:focus {
+    background-color: #ff477e;
+    border-color: #ff477e;
+    color: #fff;
+}
+
+.text-primary-custom {
+    color: #ff6b8d !important;
+}
+
+/* --- Downloader Form --- */
+#downloader-section .form-control-lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border: 1px solid #ced4da;
+}
+
+#downloader-section .btn {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* --- Results Section Styling --- */
+#video-details {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.download-btn {
+    width: 120px; /* Consistent width for download buttons */
+}
