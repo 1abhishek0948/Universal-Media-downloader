@@ -11,10 +11,8 @@ import re
 app = Flask(__name__)
 
 # --- Configuration ---
-DOWNLOAD_FOLDER = 'mydownloads'
-if not os.path.exists(DOWNLOAD_FOLDER):
-    os.makedirs(DOWNLOAD_FOLDER)
-app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
+DOWNLOAD_FOLDER = "/tmp/mydownloads"
+os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 
 # --- Helper Functions (No changes required) ---
 def categorize_formats(formats):
