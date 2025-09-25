@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "./index.py", 
+        "use": "@vercel/python",
+        "config": { "runtime":"python3.13.1 " }
+
+    }
+    ],
+    "routes": [
+        { "src": "/(.*)", 
+        "dest": "/" }
+    ]   
+}
