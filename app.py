@@ -157,6 +157,3 @@ def download_media():
         print(f"Error during download: {e}")
         return "An error occurred during download. The URL may be invalid, private, or not supported.", 500
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 4000))
-    app.run(host="0.0.0.0", port=port)
